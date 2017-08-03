@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort</title>
+</head>
+<body>
+<script src="js/jsonp.js"></script>
+<script>
+    jsonp({
+        url: "https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg",
+        data: {
+            g_tk: 5381,
+            uin: 0,
+            format:'jsonp',
+            inCharset: "utf-8",
+            outCHarset: 'utf-8',
+            notice: 0,
+            platform: 'h5',
+            needNewCode: 1,
+            jsonpCallback: 'jsonp1'
+        },
+        callback: function(resp){
+            console.log(resp);
+            var data = resp.data;
+            console.log(data.slider);
+            console.log(data.songlist);
+        }
+    });
+</script>
+</body>
+</html>
